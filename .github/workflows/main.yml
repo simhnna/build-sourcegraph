@@ -33,9 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sudo apt update && sudo apt install -y parallel
-          git clone https://github.com/sourcegraph/sourcegraph --depth=1
+          git clone --branch v3.22.1 --depth 1 https://github.com/sourcegraph/sourcegraph
           cd sourcegraph
-          git checkout v3.22.1
           cmd/server/pre-build.sh
           IMAGE=sourcegraph/server:3.22.1 VERSION=3.22.1 cmd/server/build.sh
