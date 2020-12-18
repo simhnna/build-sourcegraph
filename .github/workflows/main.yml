@@ -36,5 +36,6 @@ jobs:
           sudo apt update && sudo apt install -y parallel
           git clone https://github.com/sourcegraph/sourcegraph --depth=1
           cd sourcegraph
+          git checkout v3.22.1
           cmd/server/pre-build.sh
-          IMAGE=sourcegraph/server:0.0.0-DEVELOPMENT VERSION=0.0.0-DEVELOPMENT cmd/server/build.sh
+          IMAGE=sourcegraph/server:3.22.1 VERSION=3.22.1 cmd/server/build.sh
