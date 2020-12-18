@@ -1,0 +1,8 @@
+language: go
+before_install:
+  - nvm install 14
+script:
+- git clone https://github.com/sourcegraph/sourcegraph --depth=1
+- cd sourcegraph
+- cmd/server/pre-build.sh
+- IMAGE=sourcegraph/server:0.0.0-DEVELOPMENT VERSION=0.0.0-DEVELOPMENT cmd/server/build.sh
